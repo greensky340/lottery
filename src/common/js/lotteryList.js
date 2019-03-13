@@ -7,7 +7,12 @@ export const lotterylist = [
     name: '竞彩篮球'
   }, {
     icon: 'DLT',
-    name: '大乐透'
+    name: '大乐透',
+    path: 'dlt'
+  }, {
+    icon: 'DLT',
+    name: '双色球',
+    path: 'ssq'
   }, {
     icon: 'SD11X5',
     name: '山东11选5'

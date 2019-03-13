@@ -3,7 +3,7 @@
     <div class="content">
       <div class="contitem" v-for="(elem,index) in lotterylist"
         :key="index"
-        @click="jump(elem.icon)">
+        @click="jump(elem.path)">
         <div class="contimg" >
           <div class="czicon">
             <LotteryIcon :icon="elem.icon"></LotteryIcon>

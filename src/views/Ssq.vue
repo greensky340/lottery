@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <div class="mainTitle">
-      <div>至少选择<span style="color:#f00">5个红球</span><span style="color:#58aff9">2个蓝球</span></div>
+      <div>至少选择<span style="color:#f00">6个红球</span><span style="color:#58aff9">1个蓝球</span></div>
       <div class="rand" @click="randBall()">点我随机</div>
     </div>
     <div class="red">
@@ -19,7 +19,7 @@
 
 <script>
 import store from '@/store'
-import { loopBall, randRedBall, randBlueBall, countBall, calZhu } from '../common/js/dlt'
+import { loopBall, randRedBall, randBlueBall, countBall, calZhu } from '../common/js/ssq'
 export default {
   data () {
     return {
@@ -38,8 +38,8 @@ export default {
       this.setBallAllVal()
       this.redBallArr = randRedBall()
       this.blueBallArr = randBlueBall()
-      this.selectedRedNum = 5
-      this.selectedBlueNum = 2
+      this.selectedRedNum = 6
+      this.selectedBlueNum = 1
       this.countMoney()
     },
     selectBall: function (index, color) { // 手动选择号码
@@ -91,14 +91,14 @@ export default {
         alert('请选择号码')
         return false
       }
-      if (this.selectedBlueNum >= 2 && this.selectedRedNum >= 5) {
+      if (this.selectedBlueNum >= 1 && this.selectedRedNum >= 6) {
         this.selectedBallAll.push(countBall(this.redBallArr, this.blueBallArr, this.zhu))
       }
       store.commit('setDlt', this.selectedBallAll)
-      this.$router.push('/dlttz')
+      this.$router.push('/SSQTZ')
     },
     setBallAllVal: function () { // 从vuex中取出值
-      this.selectedBallAll = this.$store.state.dlt
+      this.selectedBallAll = this.$store.state.ssq
     }
   },
   created: function () {

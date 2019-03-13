@@ -8,6 +8,7 @@ const loopBall = function (num) { // 生成初始数据
   }
   return ballArr
 }
+
 const loopNumbers = function (num) {
   let numberArr = []
   for (let i = 0; i < num; i++) {
@@ -15,16 +16,17 @@ const loopNumbers = function (num) {
   }
   return numberArr
 }
+
 const randNum = function (num) { //  生产随机数
   var r = Math.floor(Math.random() * (num))
   return r
 }
 
 const randRedBall = function () { // 随机红球
-  let redBallArr = loopBall(35)
-  let loopNumber = loopNumbers(35)
+  let redBallArr = loopBall(33)
+  let loopNumber = loopNumbers(33)
   let Index
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 6; i++) {
     let m = loopNumber.length
     Index = randNum(m) // 产生随机数，作为数组索引
     let ballIndex = loopNumber[Index] // 从数字数组中取出对应的数字，作为索引
@@ -37,10 +39,10 @@ const randRedBall = function () { // 随机红球
 }
 
 const randBlueBall = function () { // 随机蓝球
-  let blueBallArr = loopBall(12)
-  let loopNumber = loopNumbers(12)
+  let blueBallArr = loopBall(16)
+  let loopNumber = loopNumbers(16)
   let Index
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < 1; i++) {
     let m = loopNumber.length
     Index = randNum(m) // 产生随机数，作为数组索引
     let ballIndex = loopNumber[Index] // 从数字数组中取出对应的数字，作为索引
@@ -95,15 +97,15 @@ const calZhu = function (redNum, blueNum) {
   let result = 1
   let rZhu = 0
   let bZhu = 0
-  let redN = 5
-  let blueN = 2
-  if (redNum < 5 || blueNum < 2) {
+  let redN = 6
+  let blueN = 1
+  if (redNum < 6 || blueNum < 1) {
     return 0
   }
-  if (redNum === 5 && blueNum === 2) {
+  if (redNum === 6 && blueNum === 1) {
     result = 1
   } else {
-    if (redNum === 5) {
+    if (redNum === 6) {
       rZhu = 1
     } else {
       let r1 = calNumberJieCheng(redNum)
@@ -111,7 +113,7 @@ const calZhu = function (redNum, blueNum) {
       let r3 = calNumberJieCheng(redNum - redN)
       rZhu = r1 / (r2 * r3)
     }
-    if (blueNum === 2) {
+    if (blueNum === 1) {
       bZhu = 1
     } else {
       let b1 = calNumberJieCheng(blueNum)

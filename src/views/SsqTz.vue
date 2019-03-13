@@ -22,7 +22,7 @@
 </template>
 <script>
 import store from '@/store'
-import { randRedBall, randBlueBall, countBall } from '../common/js/dlt'
+import { randRedBall, randBlueBall, countBall } from '../common/js/ssq'
 import { postData } from '../common/js/axios'
 export default {
   data () {
@@ -35,14 +35,14 @@ export default {
     }
   },
   created () {
-    console.log(this.$store.state.dlt)
-    this.selectedBallAll = this.$store.state.dlt
+    console.log(this.$store.state.ssq)
+    this.selectedBallAll = this.$store.state.ssq
     this.countMoney()
   },
   methods: {
     back: function () {
       this.$router.push(
-        '/dlt'
+        '/ssq'
       )
     },
     randBall: function () {
@@ -50,7 +50,7 @@ export default {
       this.blueBallArr = randBlueBall()
       this.selectedBallAll.unshift(countBall(this.redBallArr, this.blueBallArr, 1)) // 机选 1注
       this.countMoney()
-      store.commit('setDlt', this.selectedBallAll)
+      store.commit('setSsq', this.selectedBallAll)
     },
     countMoney: function () {
       let zhu = 0
@@ -63,7 +63,7 @@ export default {
       resultObj.issue = '20191111'
       resultObj.bei = 1
       resultObj.zhuijia = 0
-      resultObj.caipiao_type = 'dlt'
+      resultObj.caipiao_type = 'ssq'
       resultObj.sum_money = this.money
       resultObj.touzhuInfo = this.selectedBallAll
       resultObj.quan_id = 0
@@ -72,7 +72,7 @@ export default {
     },
     delBall: function (index) {
       this.selectedBallAll.splice(index, 1)
-      store.commit('setDlt', this.selectedBallAll)
+      store.commit('setSsq', this.selectedBallAll)
       this.countMoney()
     },
     touzhu: function () {
@@ -87,8 +87,8 @@ export default {
   },
   computed: {
     // codeList () {
-    //   console.log('--', this.$store.state.dlt)
-    //   return this.$store.state.dlt
+    //   console.log('--', this.$store.state.ssq)
+    //   return this.$store.state.ssq
     // }
   }
 }
